@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Spectra Smart Greenhouse</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-top">
+                <h1>Spectra Team <span class="leaf">🌱</span></h1>
+                <div class="header-actions">
+                    <button class="settings-btn">
+                        <i class='bx bx-cog'></i>
+                        <span class="tooltip">Settings</span>
+                    </button>
+                    <label class="theme-switch">
+                        <input type="checkbox" id="theme-toggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="garden-card">
+                <div class="garden-info">
+                    <h2>Ege's Garden</h2>
+                    <p class="garden-id">ID: 1344295024</p>
+                </div>
+                <i class='bx bx-chevron-right'></i>
+            </div>
+        </header>
+
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="icon"><i class='bx bx-water'></i></div>
+                <p>Humidity</p>
+                <h3>74%</h3>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 74%"></div>
+                </div>
+            </div>
+            <div class="metric-card">
+                <div class="icon"><i class='bx bx-sun'></i></div>
+                <p>Temperature</p>
+                <h3>23°C</h3>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 45%"></div>
+                </div>
+            </div>
+            <div class="metric-card">
+                <div class="icon"><i class='bx bx-droplet'></i></div>
+                <p>Water Level</p>
+                <h3>85%</h3>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 85%"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="status-grid">
+            <div class="nutrient-status">
+                <div class="status-header">
+                    <i class='bx bx-vial'></i>
+                    <h3>Nutrient Level</h3>
+                </div>
+                <div class="nutrient-info">
+                    <p>5 grams left</p>
+                    <p class="warning">Refill in 2 days</p>
+                </div>
+            </div>
+
+            <div class="connectivity-status">
+                <div class="status-header">
+                    <i class='bx bx-wifi'></i>
+                    <h3>Connectivity</h3>
+                </div>
+                <p class="online">Online</p>
+            </div>
+
+            <div class="plant-status">
+                <div class="status-header">
+                    <i class='bx bx-leaf'></i>
+                    <h3>Status</h3>
+                </div>
+                <p>6 plants growing</p>
+                <p class="harvest-time">Next harvest in 3 days</p>
+            </div>
+
+            <div class="light-status">
+                <div class="status-header">
+                    <i class='bx bx-bulb'></i>
+                    <h3>Light Status</h3>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+
+        <div class="notification">
+            <h3>Notifications</h3>
+            <ul id="notification-list">
+                <li>No new notifications</li>
+            </ul>
+            <div class="notification-controls">
+                <input type="text" id="notification-input" placeholder="Add a notification...">
+                <button id="add-notification">Add</button>
+                <button id="clear-notifications">Clear All</button>
+            </div>
+        </div>
+
+        <nav class="bottom-nav">
+            <a href="#" class="nav-item active">
+                <div class="nav-icon">
+                    <i class='bx bx-home-alt-2'></i>
+                </div>
+                <span>Home</span>
+            </a>
+            <a href="#" class="nav-item">
+                <div class="nav-icon">
+                    <i class='bx bx-list-ul'></i>
+                </div>
+                <span>List</span>
+            </a>
+            <a href="#" class="nav-item">
+                <div class="nav-icon">
+                    <i class='bx bx-user'></i>
+                </div>
+                <span>Me</span>
+            </a>
+        </nav>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

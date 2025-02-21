@@ -1,0 +1,635 @@
+:root {
+    /* Light theme variables */
+    --primary-color: #00A67E;
+    --primary-light: #e6f7f3;
+    --background-color: #f8fafc;
+    --card-background: #ffffff;
+    --text-color: #1e293b;
+    --text-secondary: #64748b;
+    --border-radius: 16px;
+    --transition: all 0.3s ease;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
+    --shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+    --warning-color: #ff6b6b;
+    --gradient-start: #e6f7f3;
+    --gradient-end: #c5ede4;
+    --neon-green: rgba(0, 255, 0, 0.7);
+    --neon-blue: rgba(0, 166, 255, 0.7);
+    --neon-red: rgba(255, 0, 0, 0.7);
+}
+
+/* Dark theme variables */
+[data-theme="dark"] {
+    --background-color: #121212;
+    --card-background: #1E1E1E;
+    --text-color: #ffffff;
+    --text-secondary: #a0a0a0;
+    --primary-light: #1a3b32;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+    --shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+    --gradient-start: #2d2d2d;
+    --gradient-end: #1E1E1E;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+h1 {
+    font-size: 28px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.leaf {
+    animation: wave 2s infinite;
+}
+
+@keyframes wave {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+}
+
+/* Header actions container */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Settings button styling */
+.settings-btn {
+    position: relative;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 12px;
+    color: var(--text-color);
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.settings-btn:hover {
+    background: rgba(0, 166, 126, 0.1);
+    color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.settings-btn:active {
+    transform: scale(0.95);
+}
+
+.settings-btn .tooltip {
+    position: absolute;
+    bottom: -30px;
+    background: var(--card-background);
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+}
+
+.settings-btn:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-4px);
+}
+
+.garden-card {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    padding: 20px;
+    border-radius: var(--border-radius);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 24px;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.garden-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 166, 126, 0.2);
+    filter: drop-shadow(0 0 10px var(--neon-green));
+}
+
+.garden-image {
+    width: 100px;
+    height: auto;
+    border-radius: var(--border-radius);
+}
+
+.garden-id {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin: 4px 0 0 0;
+}
+
+/* Metrics Grid */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.metric-card {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    padding: 20px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    color: var(--text-color);
+}
+
+.metric-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    filter: drop-shadow(0 0 10px var(--neon-green));
+}
+
+.metric-card .icon {
+    font-size: 32px;
+    color: var(--primary-color);
+    margin-bottom: 12px;
+}
+
+.metric-card p {
+    margin: 8px 0;
+    font-size: 16px;
+    color: var(--text-secondary);
+}
+
+.metric-card h3 {
+    margin: 8px 0;
+    color: var(--primary-color);
+    font-size: 24px;
+}
+
+.progress-bar {
+    background: var(--primary-light);
+    height: 8px;
+    border-radius: 4px;
+    margin-top: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-inner);
+}
+
+.progress {
+    height: 100%;
+    background: var(--primary-color);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+/* Status Grid */
+.status-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 80px;
+}
+
+.status-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.status-header i {
+    font-size: 24px;
+    color: var(--primary-color);
+}
+
+.nutrient-status,
+.connectivity-status,
+.plant-status,
+.light-status {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    color: var(--text-color);
+}
+
+.warning {
+    color: var(--warning-color);
+}
+
+.online {
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Theme switch styles */
+.theme-switch {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    margin-left: 15px;
+}
+
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.theme-switch .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 30px;
+}
+
+.theme-switch .slider:before {
+    position: absolute;
+    content: "🌞";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+    width: 24px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+    font-size: 14px;
+}
+
+.theme-switch input:checked + .slider {
+    background-color: var(--primary-color);
+}
+
+.theme-switch input:checked + .slider:before {
+    transform: translateX(30px);
+    content: "🌙";
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--card-background);
+    display: flex;
+    justify-content: space-around;
+    padding: 12px 0;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.nav-item {
+    text-decoration: none;
+    color: var(--text-secondary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    transition: var(--transition);
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    position: relative;
+    background: transparent;
+}
+
+/* Change hover effect for white mode */
+.nav-item:hover {
+    color: var(--primary-color); /* Change text color on hover */
+    background: rgba(0, 166, 126, 0.1); /* Light green background on hover */
+    box-shadow: none; /* No glow effect */
+}
+
+.nav-icon {
+    font-size: 28px;
+    transition: var(--transition);
+}
+
+.nav-item span {
+    font-size: 12px;
+    transition: var(--transition);
+}
+
+.nav-item.active {
+    color: var(--primary-color);
+    background: rgba(0, 166, 126, 0.3); /* Active background */
+    border-radius: 8px;
+    box-shadow: 0 0 10px var(--neon-green); /* Keep glow effect for active state */
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .nav-item:hover {
+    background: rgba(0, 166, 126, 0.2); /* Dark mode hover background */
+    box-shadow: 0 0 10px var(--neon-green); /* Dark mode glow effect */
+}
+
+[data-theme="dark"] .nav-item.active {
+    background: rgba(0, 166, 126, 0.3); /* Active background in dark mode */
+    box-shadow: 0 0 10px var(--neon-green); /* Dark mode glow effect */
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .settings-btn {
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .settings-btn:hover {
+    background: rgba(0, 166, 126, 0.2);
+}
+
+[data-theme="dark"] .bottom-nav {
+    background: rgba(30, 30, 30, 0.95);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .nav-item {
+    color: #808080;
+}
+
+[data-theme="dark"] .tooltip {
+    background: #2d2d2d;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 16px;
+    }
+    
+    .metrics-grid,
+    .status-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Update existing card styles */
+.metric-card {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: var(--text-color);
+}
+
+.nutrient-status,
+.connectivity-status,
+.plant-status,
+.light-status {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: var(--text-color);
+}
+
+/* Garden card specific dark theme */
+[data-theme="dark"] .garden-card {
+    background: linear-gradient(135deg, #2d2d2d, #1E1E1E);
+    color: var(--text-color);
+}
+
+/* Bottom navigation dark theme specific */
+[data-theme="dark"] .bottom-nav {
+    background: rgba(30, 30, 30, 0.95);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .bottom-nav a {
+    color: #808080;
+}
+
+[data-theme="dark"] .bottom-nav a.active,
+[data-theme="dark"] .bottom-nav a:hover {
+    color: var(--primary-color);
+}
+
+/* Progress bar dark theme */
+[data-theme="dark"] .progress-bar {
+    background: #333;
+}
+
+/* Notification area dark theme */
+[data-theme="dark"] .notification {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    border: 1px solid #333;
+}
+
+[data-theme="dark"] #notification-input {
+    background: #2d2d2d;
+    border: 1px solid #404040;
+    color: var(--text-color);
+}
+
+[data-theme="dark"] #add-notification {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+}
+
+/* Status icons dark theme */
+[data-theme="dark"] .status-header i {
+    color: var(--primary-color);
+}
+
+/* Theme switch dark theme */
+[data-theme="dark"] .theme-switch .slider {
+    background-color: #404040;
+}
+
+[data-theme="dark"] .theme-switch .slider:before {
+    background-color: #2d2d2d;
+}
+
+/* Add subtle hover effects for dark theme */
+[data-theme="dark"] .metric-card:hover,
+[data-theme="dark"] .garden-card:hover,
+[data-theme="dark"] .nutrient-status:hover,
+[data-theme="dark"] .connectivity-status:hover,
+[data-theme="dark"] .plant-status:hover,
+[data-theme="dark"] .light-status:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(135deg, #333, #262626);
+}
+
+/* Add glow effect to primary color elements in dark theme */
+[data-theme="dark"] .online,
+[data-theme="dark"] .metric-card .icon,
+[data-theme="dark"] .status-header i {
+    text-shadow: 0 0 10px rgba(0, 166, 126, 0.3);
+}
+
+/* Improve text readability in dark theme */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3 {
+    color: #ffffff;
+}
+
+[data-theme="dark"] p {
+    color: var(--text-secondary);
+}
+
+/* Dark theme specific adjustments */
+[data-theme="dark"] .settings-btn {
+    background: #2a2a2a;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .bottom-nav {
+    background: rgba(30, 30, 30, 0.95);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .bottom-nav a.active {
+    background: rgba(0, 166, 126, 0.2);
+}
+
+[data-theme="dark"] .bottom-nav a:hover {
+    background: rgba(0, 166, 126, 0.1);
+}
+
+/* Update hover and active states to use neon green */
+.nav-item:hover {
+    box-shadow: 0 0 10px var(--neon-green);
+}
+
+.nav-item.active {
+    box-shadow: 0 0 10px var(--neon-green);
+}
+
+/* Update other elements to use neon green */
+.settings-btn:hover {
+    box-shadow: 0 0 15px var(--neon-green);
+}
+
+/* Improve notification styles */
+.notification {
+    background: var(--card-background);
+    border: 1px solid var(--primary-light);
+    box-shadow: var(--shadow-md);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    margin: 20px 0 80px 0; /* Added bottom margin to prevent overlap with nav */
+    transition: var(--transition);
+}
+
+.notification:hover {
+    box-shadow: 0 0 15px var(--neon-green);
+}
+
+.notification h3 {
+    margin: 0 0 10px;
+    color: var(--primary-color);
+}
+
+.notification ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-height: 200px; /* Limit height of notification list */
+    overflow-y: auto; /* Add scroll for overflow */
+}
+
+.notification li {
+    padding: 8px;
+    border-radius: 4px;
+    transition: var(--transition);
+    background: var(--gradient-start);
+    margin: 8px 0;
+}
+
+.notification li:hover {
+    background: var(--primary-light);
+    transform: translateX(5px);
+}
+
+/* Notification input and buttons container */
+.notification-controls {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+/* Update notification input and button styles */
+#notification-input {
+    flex: 1; /* Take remaining space */
+    background: var(--card-background);
+    border: 1px solid var(--primary-light);
+    color: var(--text-color);
+    padding: 8px 12px;
+    border-radius: 4px;
+    min-width: 0; /* Allow flex shrinking */
+}
+
+#add-notification,
+#clear-notifications {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: var(--transition);
+    white-space: nowrap; /* Prevent button text from wrapping */
+}
+
+#add-notification:hover,
+#clear-notifications:hover {
+    background: #008c69;
+    box-shadow: 0 0 10px var(--neon-green);
+}
+
+/* Add green hover effect to status cards */
+.nutrient-status:hover,
+.connectivity-status:hover,
+.plant-status:hover,
+.light-status:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    filter: drop-shadow(0 0 10px var(--neon-green));
+    background: linear-gradient(135deg, #e6f7f3, #c5ede4);
+}
